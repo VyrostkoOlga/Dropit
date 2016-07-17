@@ -14,6 +14,8 @@
 @property (strong, nonatomic) UIDynamicAnimator * animator;
 @property (nonatomic, retain) UIGravityBehavior * gravity;
 
+@property (strong, nonatomic) UICollisionBehavior * collider;
+
 @end
 
 @implementation ViewController
@@ -37,6 +39,17 @@ static const CGSize DROP_SIZE = {40, 40};
     return _gravity;
 }
 
+-(UICollisionBehavior *) collider
+{
+    if (!_collider)
+    {
+        _collider = [[UICollisionBehavior alloc] init];
+        _collider.translatesReferenceBoundsIntoBoundary = YES;
+        [ self.animator addBehavior: _collider];
+    }
+    return _collider;
+}
+
 -(IBAction)tap:(UITapGestureRecognizer *)sender
 {
     [self drop];
@@ -47,7 +60,6 @@ static const CGSize DROP_SIZE = {40, 40};
     CGRect frame;
     frame.origin = CGPointZero;
     frame.size = DROP_SIZE;
-    NSLog(@"%d", (int)self.gameView.bounds.size.width);
     int x = ( arc4random()%((int)self.gameView.bounds.size.width))/DROP_SIZE.width;
     frame.origin.x = x * DROP_SIZE.width;
     
@@ -55,6 +67,7 @@ static const CGSize DROP_SIZE = {40, 40};
     dropView.backgroundColor = [self randomColor];
     [ self.gameView addSubview: dropView ];
     [ self.gravity addItem: dropView ];
+    [ self.collider addItem: dropView ];
 }
 
 -(UIColor *) randomColor
