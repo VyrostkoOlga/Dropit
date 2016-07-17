@@ -11,11 +11,31 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIView *gameView;
 
+@property (strong, nonatomic) UIDynamicAnimator * animator;
+@property (nonatomic, retain) UIGravityBehavior * gravity;
+
 @end
 
 @implementation ViewController
 
 static const CGSize DROP_SIZE = {40, 40};
+
+// lazy initialization
+-(UIDynamicAnimator *) animator
+{
+    if (!_animator) _animator = [[UIDynamicAnimator alloc] initWithReferenceView: self.gameView];
+    return _animator;
+}
+
+-(UIGravityBehavior *) gravity
+{
+    if (!_gravity)
+    {
+        _gravity = [[UIGravityBehavior alloc] init];
+        [ self.animator addBehavior: _gravity ];
+    }
+    return _gravity;
+}
 
 -(IBAction)tap:(UITapGestureRecognizer *)sender
 {
@@ -27,12 +47,14 @@ static const CGSize DROP_SIZE = {40, 40};
     CGRect frame;
     frame.origin = CGPointZero;
     frame.size = DROP_SIZE;
-    int x = ( arc4random()%(int)self.gameView.bounds.size.width)/DROP_SIZE.width;
-    frame.origin.x = x;
+    NSLog(@"%d", (int)self.gameView.bounds.size.width);
+    int x = ( arc4random()%((int)self.gameView.bounds.size.width))/DROP_SIZE.width;
+    frame.origin.x = x * DROP_SIZE.width;
     
     UIView * dropView = [[UIView alloc] initWithFrame: frame];
     dropView.backgroundColor = [self randomColor];
     [ self.gameView addSubview: dropView ];
+    [ self.gravity addItem: dropView ];
 }
 
 -(UIColor *) randomColor
