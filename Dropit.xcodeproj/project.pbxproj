@@ -15,6 +15,7 @@
 		7D7383941D3BCB9D00640C4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D7383921D3BCB9D00640C4B /* LaunchScreen.storyboard */; };
 		7D73839F1D3BCB9D00640C4B /* DropitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D73839E1D3BCB9D00640C4B /* DropitTests.m */; };
 		7D7383AA1D3BCB9D00640C4B /* DropitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7383A91D3BCB9D00640C4B /* DropitUITests.m */; };
+		7D7383B91D3BE07900640C4B /* DropitBehaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7383B81D3BE07900640C4B /* DropitBehaviour.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		7D7383A51D3BCB9D00640C4B /* DropitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DropitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D7383A91D3BCB9D00640C4B /* DropitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DropitUITests.m; sourceTree = "<group>"; };
 		7D7383AB1D3BCB9D00640C4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D7383B71D3BE07900640C4B /* DropitBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropitBehaviour.h; sourceTree = "<group>"; };
+		7D7383B81D3BE07900640C4B /* DropitBehaviour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropitBehaviour.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				7D7383921D3BCB9D00640C4B /* LaunchScreen.storyboard */,
 				7D7383951D3BCB9D00640C4B /* Info.plist */,
 				7D7383841D3BCB9D00640C4B /* Supporting Files */,
+				7D7383B71D3BE07900640C4B /* DropitBehaviour.h */,
+				7D7383B81D3BE07900640C4B /* DropitBehaviour.m */,
 			);
 			path = Dropit;
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 				7D73838C1D3BCB9D00640C4B /* ViewController.m in Sources */,
 				7D7383891D3BCB9D00640C4B /* AppDelegate.m in Sources */,
 				7D7383861D3BCB9D00640C4B /* main.m in Sources */,
+				7D7383B91D3BE07900640C4B /* DropitBehaviour.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
